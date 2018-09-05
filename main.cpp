@@ -24,14 +24,13 @@ int main(int argc, char** argv)
 
     /******************   opencv_contrib 改版  ********************/
 
-
     struct timeval tstart, tend, mstart, mend, ticps, ticpe;
     double timer;
 
 
-    string modelFileName = "/home/ds/Desktop/sample sets/test/mian_T-rex_high.ply";
-    string sceneFileName = "/home/ds/Desktop/sample sets/test/rs1.ply";
-    string SaveFileName  = "/home/ds/Desktop/sample sets/test/ppf_m2e_match.ply";
+    string modelFileName = "/Desktop/sample sets/test/mian_T-rex_high.ply";
+    string sceneFileName = "/Desktop/sample sets/test/rs1.ply";
+    string SaveFileName  = "/Desktop/sample sets/test/ppf_m2e_match.ply";
 
 
     std::vector<Eigen::Vector3f> M_pc, M_nr;
@@ -40,11 +39,9 @@ int main(int argc, char** argv)
     ppf3d_public detector(0.05, 0.05);
 
     // Load a PLY File
-    //Mat pcModel = detector.loadPLYSimple(modelFileName.c_str(), 1);
     detector.loadPLYFile(modelFileName.c_str(), M_pc, M_nr);
 
     // Read the scene
-    //Mat pcScene = detector.loadPLYSimple(sceneFileName.c_str(), 1);
     detector.loadPLYFile(sceneFileName.c_str(), S_pc, S_nr);
 
     // Now train the model
